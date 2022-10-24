@@ -615,11 +615,11 @@ final class TextUtils
     /**
      * Приведение значения к типу float
      *
-     * @param $num
+     * @param string $num
      *
      * @return float
      */
-    public static function toFloat($num): float
+    public static function toFloat(string $num): float
     {
         $dotPos = strrpos($num, '.');
         $commaPos = strrpos($num, ',');
