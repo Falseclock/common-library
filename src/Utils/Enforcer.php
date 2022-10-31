@@ -13,18 +13,18 @@ class Enforcer
      * @param $class
      * @param $c
      */
-    public static function __add($class, $c) {
+    public static function __add($class, $c)
+    {
         try {
 
             $reflection = new ReflectionClass($class);
             $constantsForced = $reflection->getConstants();
-            foreach($constantsForced as $constant => $value) {
-                if(constant("$c::$constant") === Enforcer::ABSTRACT_VALUE) {
+            foreach ($constantsForced as $constant => $value) {
+                if (constant("$c::$constant") === Enforcer::ABSTRACT_VALUE) {
                     trigger_error("Undefined $constant in " . $c);
                 }
             }
-        }
-        catch(Throwable $e) {
+        } catch (Throwable $e) {
             trigger_error($e->getMessage());
         }
     }
